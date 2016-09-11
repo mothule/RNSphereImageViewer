@@ -1,0 +1,404 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		547CB5F21D8458B900217EA7 /* RNSphereImageViewer.h in Headers */ = {isa = PBXBuildFile; fileRef = 547CB5F11D8458B900217EA7 /* RNSphereImageViewer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		547CB5F91D8458B900217EA7 /* RNSphereImageViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547CB5EE1D8458B900217EA7 /* RNSphereImageViewer.framework */; };
+		547CB5FE1D8458B900217EA7 /* RNSphereImageViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547CB5FD1D8458B900217EA7 /* RNSphereImageViewerTests.swift */; };
+		54CDF07F1D8459920024C1DE /* RNSphereImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CDF07E1D8459920024C1DE /* RNSphereImageViewController.swift */; };
+		54CDF0801D8459920024C1DE /* RNSphereImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CDF07E1D8459920024C1DE /* RNSphereImageViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		547CB5FA1D8458B900217EA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 547CB5E51D8458B900217EA7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 547CB5ED1D8458B900217EA7;
+			remoteInfo = RNSphereImageViewer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		547CB5EE1D8458B900217EA7 /* RNSphereImageViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNSphereImageViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		547CB5F11D8458B900217EA7 /* RNSphereImageViewer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSphereImageViewer.h; sourceTree = "<group>"; };
+		547CB5F31D8458B900217EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		547CB5F81D8458B900217EA7 /* RNSphereImageViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RNSphereImageViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		547CB5FD1D8458B900217EA7 /* RNSphereImageViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSphereImageViewerTests.swift; sourceTree = "<group>"; };
+		547CB5FF1D8458B900217EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54CDF07E1D8459920024C1DE /* RNSphereImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNSphereImageViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		547CB5EA1D8458B900217EA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		547CB5F51D8458B900217EA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				547CB5F91D8458B900217EA7 /* RNSphereImageViewer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		547CB5E41D8458B900217EA7 = {
+			isa = PBXGroup;
+			children = (
+				547CB5F01D8458B900217EA7 /* RNSphereImageViewer */,
+				547CB5FC1D8458B900217EA7 /* RNSphereImageViewerTests */,
+				547CB5EF1D8458B900217EA7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		547CB5EF1D8458B900217EA7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				547CB5EE1D8458B900217EA7 /* RNSphereImageViewer.framework */,
+				547CB5F81D8458B900217EA7 /* RNSphereImageViewerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		547CB5F01D8458B900217EA7 /* RNSphereImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				54CDF07E1D8459920024C1DE /* RNSphereImageViewController.swift */,
+				547CB5F11D8458B900217EA7 /* RNSphereImageViewer.h */,
+				547CB5F31D8458B900217EA7 /* Info.plist */,
+			);
+			path = RNSphereImageViewer;
+			sourceTree = "<group>";
+		};
+		547CB5FC1D8458B900217EA7 /* RNSphereImageViewerTests */ = {
+			isa = PBXGroup;
+			children = (
+				547CB5FD1D8458B900217EA7 /* RNSphereImageViewerTests.swift */,
+				547CB5FF1D8458B900217EA7 /* Info.plist */,
+			);
+			path = RNSphereImageViewerTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		547CB5EB1D8458B900217EA7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				547CB5F21D8458B900217EA7 /* RNSphereImageViewer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		547CB5ED1D8458B900217EA7 /* RNSphereImageViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 547CB6021D8458B900217EA7 /* Build configuration list for PBXNativeTarget "RNSphereImageViewer" */;
+			buildPhases = (
+				547CB5E91D8458B900217EA7 /* Sources */,
+				547CB5EA1D8458B900217EA7 /* Frameworks */,
+				547CB5EB1D8458B900217EA7 /* Headers */,
+				547CB5EC1D8458B900217EA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RNSphereImageViewer;
+			productName = RNSphereImageViewer;
+			productReference = 547CB5EE1D8458B900217EA7 /* RNSphereImageViewer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		547CB5F71D8458B900217EA7 /* RNSphereImageViewerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 547CB6051D8458B900217EA7 /* Build configuration list for PBXNativeTarget "RNSphereImageViewerTests" */;
+			buildPhases = (
+				547CB5F41D8458B900217EA7 /* Sources */,
+				547CB5F51D8458B900217EA7 /* Frameworks */,
+				547CB5F61D8458B900217EA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				547CB5FB1D8458B900217EA7 /* PBXTargetDependency */,
+			);
+			name = RNSphereImageViewerTests;
+			productName = RNSphereImageViewerTests;
+			productReference = 547CB5F81D8458B900217EA7 /* RNSphereImageViewerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		547CB5E51D8458B900217EA7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = mothule;
+				TargetAttributes = {
+					547CB5ED1D8458B900217EA7 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					547CB5F71D8458B900217EA7 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 547CB5E81D8458B900217EA7 /* Build configuration list for PBXProject "RNSphereImageViewer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 547CB5E41D8458B900217EA7;
+			productRefGroup = 547CB5EF1D8458B900217EA7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				547CB5ED1D8458B900217EA7 /* RNSphereImageViewer */,
+				547CB5F71D8458B900217EA7 /* RNSphereImageViewerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		547CB5EC1D8458B900217EA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		547CB5F61D8458B900217EA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		547CB5E91D8458B900217EA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54CDF07F1D8459920024C1DE /* RNSphereImageViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		547CB5F41D8458B900217EA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54CDF0801D8459920024C1DE /* RNSphereImageViewController.swift in Sources */,
+				547CB5FE1D8458B900217EA7 /* RNSphereImageViewerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		547CB5FB1D8458B900217EA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 547CB5ED1D8458B900217EA7 /* RNSphereImageViewer */;
+			targetProxy = 547CB5FA1D8458B900217EA7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		547CB6001D8458B900217EA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		547CB6011D8458B900217EA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		547CB6031D8458B900217EA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RNSphereImageViewer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.mothule.RNSphereImageViewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		547CB6041D8458B900217EA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RNSphereImageViewer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.mothule.RNSphereImageViewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		547CB6061D8458B900217EA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RNSphereImageViewerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.mothule.RNSphereImageViewerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		547CB6071D8458B900217EA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RNSphereImageViewerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.mothule.RNSphereImageViewerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		547CB5E81D8458B900217EA7 /* Build configuration list for PBXProject "RNSphereImageViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				547CB6001D8458B900217EA7 /* Debug */,
+				547CB6011D8458B900217EA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		547CB6021D8458B900217EA7 /* Build configuration list for PBXNativeTarget "RNSphereImageViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				547CB6031D8458B900217EA7 /* Debug */,
+				547CB6041D8458B900217EA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		547CB6051D8458B900217EA7 /* Build configuration list for PBXNativeTarget "RNSphereImageViewerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				547CB6061D8458B900217EA7 /* Debug */,
+				547CB6071D8458B900217EA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 547CB5E51D8458B900217EA7 /* Project object */;
+}
