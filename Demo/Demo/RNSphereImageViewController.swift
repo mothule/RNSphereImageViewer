@@ -15,56 +15,56 @@ import OpenGLES
  */
 public struct RNSIConfiguration {
     // Frame per second
-    public var fps:Int = 30
-    
+    public var fps: Int = 30
+
     // field of view
-    public var fovy:Float = 70
-    
+    public var fovy: Float = 70
+
     // max distance from center
-    public var zoomOutMax:Float = 5.0
-    
+    public var zoomOutMax: Float = 5.0
+
     // file's path of a image's file for Texture.
-    public var filePath:String?
-    
+    public var filePath: String?
+
     // UIImage for Texture
-    public var image:UIImage?
-    
+    public var image: UIImage?
+
     // options of GLKTextureLoader
-    public var textureLoadOptions:[String : NSNumber] = [GLKTextureLoaderOriginBottomLeft:NSNumber(bool:true)]
-    
+    public var textureLoadOptions: [String : NSNumber] = [GLKTextureLoaderOriginBottomLeft:NSNumber(bool:true)]
+
     // a friction will use camera smooth move.
-    public var frictionOfCameraMove:Float = 0.9
-    
+    public var frictionOfCameraMove: Float = 0.9
+
     // sphere stack size
-    public var stackSize:Int = 32
-    
+    public var stackSize: Int = 32
+
     // sphere slice size
-    public var sliceSize:Int = 32
+    public var sliceSize: Int = 32
 }
 
 /**
- 
+
  */
 public protocol RNSIDelegate : class {
     // It will call when fail load a texture.
-    func failLoadTexture(error:ErrorType)
-    
+    func failLoadTexture(error: ErrorType)
+
     // It will call when abort for memory not enought.
     func abortForMemoryNotEnough()
-    
+
     // It will call when
-    func completeSetup(view:UIView)
+    func completeSetup(view: UIView)
 }
 
 /**
     This view controller can watch a spherical image.
  */
 public class RNSphereImageViewController: GLKViewController {
-    
+
     // camera
-    private var fovyDegree:GLfloat = 70.0
-    private var positionZ:GLfloat = 0.0
-    private var maxPositionZ:GLfloat = -5.0
+    private var fovyDegree: GLfloat = 50.0
+    private var positionZ: GLfloat = 0.0
+    private var maxPositionZ: GLfloat = -5.0
 
     // posture
     private var rotationYaw: Float = 0.0
@@ -74,9 +74,9 @@ public class RNSphereImageViewController: GLKViewController {
 
     // input
     private var touchPrevPoint: CGPoint = CGPoint.zero
-    
+
     // draw data
-    private var sphereVertexData: [GLfloat]!
+    private var sphereVertexData: [GLfloat]?
     private var vertexArray: GLuint = 0
     private var vertexBuffer: GLuint = 0
     private var textureInfo: GLKTextureInfo?
@@ -84,12 +84,12 @@ public class RNSphereImageViewController: GLKViewController {
     // draw
     private var context: EAGLContext? = nil
     private var effect: GLKBaseEffect? = nil
-    
+
     // delegate
-    public var userDelegate:RNSIDelegate?
-    
+    public var userDelegate: RNSIDelegate?
+
     // required.
-    var configuration:RNSIConfiguration!
+    var configuration: RNSIConfiguration!
 
     deinit {
         self.tearDownGL()
@@ -103,10 +103,10 @@ public class RNSphereImageViewController: GLKViewController {
         super.viewDidLoad()
 
         self.context = EAGLContext(API: .OpenGLES2)
-        configuration = RNSIConfiguration()
-        let path = NSBundle.mainBundle().pathForResource("sample3", ofType: "JPG")
-        configuration.filePath = path
-        
+//        configuration = RNSIConfiguration()
+//        let path = NSBundle.mainBundle().pathForResource("sample3", ofType: "JPG")
+//        configuration.filePath = path
+
 
         if !(self.context != nil) {
             print("Failed to create ES context")
@@ -115,12 +115,13 @@ public class RNSphereImageViewController: GLKViewController {
         let view = self.view as! GLKView
         view.context = self.context!
         view.drawableDepthFormat = .Format24
+
         self.view.layer.magnificationFilter = kCAFilterLinear
         self.view.layer.minificationFilter = kCAFilterLinear
         sphereVertexData = getSphere()
         preferredFramesPerSecond = configuration.fps
         fovyDegree = GLfloat(configuration.fovy)
-        maxPositionZ = GLfloat(configuration.zoomOutMax)
+        maxPositionZ = GLfloat(-configuration.zoomOutMax)
 
         self.setupGL()
         userDelegate?.completeSetup(self.view)
@@ -139,14 +140,14 @@ public class RNSphereImageViewController: GLKViewController {
             }
             self.context = nil
         }
-        
+
         userDelegate?.abortForMemoryNotEnough()
     }
-    
+
 
     private func setupGL() {
-        
-        
+
+
         EAGLContext.setCurrentContext(self.context)
 
         self.effect = GLKBaseEffect()
@@ -154,21 +155,21 @@ public class RNSphereImageViewController: GLKViewController {
 
         glEnable(GLenum(GL_CULL_FACE))
         glFrontFace(GLenum(GL_CW))
-        
+
         glGenVertexArraysOES(1, &vertexArray)
         glBindVertexArrayOES(vertexArray)
 
         glGenBuffers(1, &vertexBuffer)
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexBuffer)
-        glBufferData(GLenum(GL_ARRAY_BUFFER), GLsizeiptr(sizeof(GLfloat) * sphereVertexData.count), &sphereVertexData, GLenum(GL_STATIC_DRAW))
+        glBufferData(GLenum(GL_ARRAY_BUFFER), GLsizeiptr(sizeof(GLfloat) * sphereVertexData!.count), &sphereVertexData!, GLenum(GL_STATIC_DRAW))
 
         do {
             if let filePath = configuration.filePath {
                 textureInfo = try GLKTextureLoader.textureWithContentsOfFile(filePath, options: configuration.textureLoadOptions)
-            }else if let image = configuration.image{
+            } else if let image = configuration.image {
                 textureInfo = try GLKTextureLoader.textureWithCGImage(image.CGImage!, options: configuration.textureLoadOptions)
             }
-            
+
         } catch {
             print(error)
             userDelegate?.failLoadTexture(error)
@@ -185,7 +186,7 @@ public class RNSphereImageViewController: GLKViewController {
 
         glBindVertexArrayOES(0)
     }
-    
+
     private func BUFFER_OFFSET(i: Int) -> UnsafePointer<Void> {
         let p: UnsafePointer<Void> = nil
         return p.advancedBy(i)
@@ -226,25 +227,25 @@ public class RNSphereImageViewController: GLKViewController {
 
         // Auto rotate
         rotationYaw += Float(self.timeSinceLastUpdate * Double(0.1))
-        
-        let pi_2:GLfloat = GLfloat(M_PI_2)
-        
+
+        let pi_2: GLfloat = GLfloat(M_PI_2)
+
         // Inertia and camera work
         rotationYaw += Float(self.timeSinceLastUpdate * Double(rotationVelocityYaw))
         if positionZ < 0.0 {
             positionZ -= Float(self.timeSinceLastUpdate * Double(rotationVelocityPitch))
-        
-        }else{
+
+        } else {
             rotationPitch += Float(self.timeSinceLastUpdate * Double(rotationVelocityPitch))
             if rotationPitch > pi_2 {
                 positionZ -= (rotationPitch - pi_2)
             }
         }
-        
-        // Clamp
+
+//        // Clamp
         if rotationPitch > pi_2 {
             rotationPitch = pi_2
-        }else if rotationPitch < -pi_2 {
+        } else if rotationPitch < -pi_2 {
             rotationPitch = -pi_2
         }
         if positionZ < maxPositionZ {
@@ -254,7 +255,7 @@ public class RNSphereImageViewController: GLKViewController {
         if positionZ > 0.0 {
             positionZ = 0.0
         }
-        
+
         // Friction
         rotationVelocityYaw *= configuration.frictionOfCameraMove
         rotationVelocityPitch *= configuration.frictionOfCameraMove
@@ -276,7 +277,7 @@ public class RNSphereImageViewController: GLKViewController {
         self.effect?.prepareToDraw()
 
 //        glDrawArrays(GLenum(GL_LINES), 0, GLsizei(gSphereVertexData.count/5))
-        glDrawArrays(GLenum(GL_TRIANGLES), 0, GLsizei(sphereVertexData.count/5))
+        glDrawArrays(GLenum(GL_TRIANGLES), 0, GLsizei(sphereVertexData!.count/5))
     }
 
     override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -288,7 +289,7 @@ public class RNSphereImageViewController: GLKViewController {
     }
 
     override public func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
+
         let touch: UITouch = touches.first! as UITouch
         let pos: CGPoint = touch.locationInView(self.view)
 
@@ -311,7 +312,7 @@ public class RNSphereImageViewController: GLKViewController {
     override public func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
     }
 
-    
+
     private func getSphere() -> [GLfloat] {
 
         let pi2: Double = 2.0 * M_PI
