@@ -25,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		542540E81D86FEBC002A4D4B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		547CB5EE1D8458B900217EA7 /* RNSphereImageViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNSphereImageViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		547CB5F11D8458B900217EA7 /* RNSphereImageViewer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSphereImageViewer.h; sourceTree = "<group>"; };
 		547CB5F31D8458B900217EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 				547CB5F01D8458B900217EA7 /* RNSphereImageViewer */,
 				547CB5FC1D8458B900217EA7 /* RNSphereImageViewerTests */,
 				547CB5EF1D8458B900217EA7 /* Products */,
+				542540E81D86FEBC002A4D4B /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
