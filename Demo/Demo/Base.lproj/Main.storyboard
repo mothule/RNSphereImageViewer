@@ -38,30 +38,11 @@
                     <navigationItem key="navigationItem" id="pWS-ho-luz"/>
                     <connections>
                         <outlet property="tableView" destination="SzF-TE-jBL" id="amn-xS-gTq"/>
-                        <segue destination="ugt-8o-UZG" kind="show" identifier="sphere" id="0OP-hG-zuN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOw-hR-yxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="754.5" y="630.5"/>
-        </scene>
-        <!--Sphere Image View Controller-->
-        <scene sceneID="dFW-5t-S8c">
-            <objects>
-                <viewController id="ugt-8o-UZG" customClass="RNSphereImageViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PAw-6q-2PO"/>
-                        <viewControllerLayoutGuide type="bottom" id="q0o-fw-0ni"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Djz-3G-UDc" customClass="GLKView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ppg-C9-ixu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1253.5" y="635.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XJg-Gy-iMD">

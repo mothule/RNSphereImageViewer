@@ -16,16 +16,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! RNSphereImageViewController
-        vc.configuration = RNSIConfiguration()
-        let path = NSBundle.mainBundle().pathForResource((sender as! String), ofType: "JPG")
-        vc.configuration.filePath = path
-        vc.configuration.fps = 60
-        
-    }
 }
 
 extension ViewController : UITableViewDataSource {
@@ -42,17 +32,32 @@ extension ViewController : UITableViewDataSource {
         return cell!
     }
 }
+
 extension ViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
-        self.performSegueWithIdentifier("sphere", sender: resourcesPath[indexPath.row])
+        let vc = RNSphereImageViewController()
+        vc.configuration = RNSIConfiguration()
+        let path = NSBundle.mainBundle().pathForResource(resourcesPath[indexPath.row], ofType: "JPG")
+        vc.configuration.filePath = path
+        vc.configuration.fps = 60
+        vc.userDelegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
 
-//        var vc = RNSphereImageViewController()
-//        vc.configuration = RNSIConfiguration()
-//        let path = NSBundle.mainBundle().pathForResource(resourcesPath[indexPath.row], ofType: "JPG")
-//        vc.configuration.filePath = path
-//
-//        self.navigationController?.pushViewController(vc, animated: true)
+extension ViewController : RNSIDelegate {
+    // It will call when fail load a texture.
+    func failLoadTexture(error: ErrorType){
+        print(error)
+    }
+    
+    // It will call when abort for memory not enought.
+    func abortForMemoryNotEnough(){
+    }
+    
+    // It will call when
+    func completeSetup(view: UIView){
     }
 }

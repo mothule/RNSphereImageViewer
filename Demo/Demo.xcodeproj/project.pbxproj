@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		2FB6F59C1D86C40400F17B36 /* sample3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 2FB6F59A1D86C40400F17B36 /* sample3.JPG */; };
 		2FB6F59D1D86C40400F17B36 /* sample4.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 2FB6F59B1D86C40400F17B36 /* sample4.JPG */; };
-		2FB6F5A71D86D59900F17B36 /* RNSphereImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB6F5A61D86D59900F17B36 /* RNSphereImageViewController.swift */; };
+		542540E61D86F61A002A4D4B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 542540E31D86F61A002A4D4B /* Info.plist */; };
+		542540E71D86F61A002A4D4B /* RNSphereImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542540E41D86F61A002A4D4B /* RNSphereImageViewController.swift */; };
 		54CDF08E1D8580110024C1DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CDF08D1D8580110024C1DE /* AppDelegate.swift */; };
 		54CDF0901D8580110024C1DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CDF08F1D8580110024C1DE /* ViewController.swift */; };
 		54CDF0931D8580110024C1DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54CDF0911D8580110024C1DE /* Main.storyboard */; };
@@ -20,7 +21,9 @@
 /* Begin PBXFileReference section */
 		2FB6F59A1D86C40400F17B36 /* sample3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample3.JPG; sourceTree = "<group>"; };
 		2FB6F59B1D86C40400F17B36 /* sample4.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample4.JPG; sourceTree = "<group>"; };
-		2FB6F5A61D86D59900F17B36 /* RNSphereImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNSphereImageViewController.swift; sourceTree = "<group>"; };
+		542540E31D86F61A002A4D4B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		542540E41D86F61A002A4D4B /* RNSphereImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNSphereImageViewController.swift; sourceTree = "<group>"; };
+		542540E51D86F61A002A4D4B /* RNSphereImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSphereImageViewer.h; sourceTree = "<group>"; };
 		54CDF08A1D8580110024C1DE /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54CDF08D1D8580110024C1DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54CDF08F1D8580110024C1DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,9 +44,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		542540E21D86F61A002A4D4B /* RNSphereImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				542540E31D86F61A002A4D4B /* Info.plist */,
+				542540E41D86F61A002A4D4B /* RNSphereImageViewController.swift */,
+				542540E51D86F61A002A4D4B /* RNSphereImageViewer.h */,
+			);
+			name = RNSphereImageViewer;
+			path = ../RNSphereImageViewer;
+			sourceTree = "<group>";
+		};
 		54CDF0811D8580110024C1DE = {
 			isa = PBXGroup;
 			children = (
+				542540E21D86F61A002A4D4B /* RNSphereImageViewer */,
 				54CDF08C1D8580110024C1DE /* Demo */,
 				54CDF08B1D8580110024C1DE /* Products */,
 			);
@@ -60,7 +75,6 @@
 		54CDF08C1D8580110024C1DE /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				2FB6F5A61D86D59900F17B36 /* RNSphereImageViewController.swift */,
 				2FB6F59A1D86C40400F17B36 /* sample3.JPG */,
 				2FB6F59B1D86C40400F17B36 /* sample4.JPG */,
 				54CDF08D1D8580110024C1DE /* AppDelegate.swift */,
@@ -133,6 +147,7 @@
 			files = (
 				54CDF0931D8580110024C1DE /* Main.storyboard in Resources */,
 				2FB6F59D1D86C40400F17B36 /* sample4.JPG in Resources */,
+				542540E61D86F61A002A4D4B /* Info.plist in Resources */,
 				54CDF0951D8580110024C1DE /* Assets.xcassets in Resources */,
 				54CDF0981D8580110024C1DE /* LaunchScreen.storyboard in Resources */,
 				2FB6F59C1D86C40400F17B36 /* sample3.JPG in Resources */,
@@ -148,7 +163,7 @@
 			files = (
 				54CDF0901D8580110024C1DE /* ViewController.swift in Sources */,
 				54CDF08E1D8580110024C1DE /* AppDelegate.swift in Sources */,
-				2FB6F5A71D86D59900F17B36 /* RNSphereImageViewController.swift in Sources */,
+				542540E71D86F61A002A4D4B /* RNSphereImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
