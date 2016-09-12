@@ -1,6 +1,17 @@
 # RNSphereImageViewer
 This library can watch a spherical image.
 
+## gif animation
+
+![rnsphereimageviewer_animation3](https://cloud.githubusercontent.com/assets/974367/18443388/a5c2fe06-794f-11e6-9ba6-f43aa9ccaebc.gif)
+
+
+## Youtube
+
+https://www.youtube.com/watch?v=crqeokiwsfc
+
+
+
 # Features
 
 - Support 2 Lens image. like the THETA.
