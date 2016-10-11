@@ -34,15 +34,15 @@ self.navigationController?.pushViewController(vc, animated: true)
 
 # Runtime Requirements
 
-- iOS 9.3
-- Swift 2.2
+- iOS 10
+- Swift 3
 
 # Installation and Setup
 
 Support CocoaPods
 
 ~~~podfile
-pod 'RNSphereImageViewer', '~> 1.0'
+pod 'RNSphereImageViewer', '~> 2.0'
 ~~~
 
 # LICENSE

@@ -30,7 +30,7 @@ public struct RNSIConfiguration {
     public var image: UIImage?
 
     // options of GLKTextureLoader
-    public var textureLoadOptions: [String : NSNumber] = [GLKTextureLoaderOriginBottomLeft:NSNumber(bool:true)]
+    public var textureLoadOptions: [String : NSNumber] = [GLKTextureLoaderOriginBottomLeft:NSNumber(value: true as Bool)]
 
     // a friction will use camera smooth move.
     public var frictionOfCameraMove: Float = 0.9
@@ -47,47 +47,47 @@ public struct RNSIConfiguration {
  */
 public protocol RNSIDelegate : class {
     // It will call when fail load a texture.
-    func failLoadTexture(error: ErrorType)
+    func failLoadTexture(_ error: Error)
 
     // It will call when abort for memory not enought.
     func abortForMemoryNotEnough()
 
     // It will call when
-    func completeSetup(view: UIView)
+    func completeSetup(_ view: UIView)
 }
 
 /**
     This view controller can watch a spherical image.
  */
-public class RNSphereImageViewController: GLKViewController {
+open class RNSphereImageViewController: GLKViewController {
 
     // camera
-    private var fovyDegree: GLfloat = 50.0
-    private var positionZ: GLfloat = 0.0
-    private var maxPositionZ: GLfloat = -3.0
+    fileprivate var fovyDegree: GLfloat = 50.0
+    fileprivate var positionZ: GLfloat = 0.0
+    fileprivate var maxPositionZ: GLfloat = -3.0
 
     // posture
-    private var rotationYaw: Float = 0.0
-    private var rotationPitch: Float = 0.0
-    private var rotationVelocityYaw: Float = 0.0
-    private var rotationVelocityPitch: Float = 0.0
+    fileprivate var rotationYaw: Float = 0.0
+    fileprivate var rotationPitch: Float = 0.0
+    fileprivate var rotationVelocityYaw: Float = 0.0
+    fileprivate var rotationVelocityPitch: Float = 0.0
 
     // input
-    private var touchPrevPoint: CGPoint = CGPoint.zero
+    fileprivate var touchPrevPoint: CGPoint = CGPoint.zero
 
 
     // draw data
-    private var sphereVertexData: [GLfloat]?
-    private var vertexArray: GLuint = 0
-    private var vertexBuffer: GLuint = 0
-    private var textureInfo: GLKTextureInfo?
+    fileprivate var sphereVertexData: [GLfloat]?
+    fileprivate var vertexArray: GLuint = 0
+    fileprivate var vertexBuffer: GLuint = 0
+    fileprivate var textureInfo: GLKTextureInfo?
 
     // draw
-    private var context: EAGLContext? = nil
-    private var effect: GLKBaseEffect? = nil
+    fileprivate var context: EAGLContext? = nil
+    fileprivate var effect: GLKBaseEffect? = nil
 
     // delegate
-    public var userDelegate: RNSIDelegate?
+    open var userDelegate: RNSIDelegate?
 
     // required.
     var configuration: RNSIConfiguration!
@@ -95,22 +95,22 @@ public class RNSphereImageViewController: GLKViewController {
     deinit {
         self.tearDownGL()
 
-        if EAGLContext.currentContext() === self.context {
-            EAGLContext.setCurrentContext(nil)
+        if EAGLContext.current() === self.context {
+            EAGLContext.setCurrent(nil)
         }
     }
 
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
-        self.context = EAGLContext(API: .OpenGLES2)
+        self.context = EAGLContext(api: .openGLES2)
         if !(self.context != nil) {
             print("Failed to create ES context")
         }
 
         let view = self.view as! GLKView
         view.context = self.context!
-        view.drawableDepthFormat = .Format24
+        view.drawableDepthFormat = .format24
 
         self.view.layer.magnificationFilter = kCAFilterLinear
         self.view.layer.minificationFilter = kCAFilterLinear
@@ -123,16 +123,16 @@ public class RNSphereImageViewController: GLKViewController {
         userDelegate?.completeSetup(self.view)
     }
 
-    override public func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
-        if self.isViewLoaded() && (self.view.window != nil) {
+        if self.isViewLoaded && (self.view.window != nil) {
             self.view = nil
 
             self.tearDownGL()
 
-            if EAGLContext.currentContext() === self.context {
-                EAGLContext.setCurrentContext(nil)
+            if EAGLContext.current() === self.context {
+                EAGLContext.setCurrent(nil)
             }
             self.context = nil
         }
@@ -141,10 +141,10 @@ public class RNSphereImageViewController: GLKViewController {
     }
 
 
-    private func setupGL() {
+    fileprivate func setupGL() {
 
 
-        EAGLContext.setCurrentContext(self.context)
+        EAGLContext.setCurrent(self.context)
 
         self.effect = GLKBaseEffect()
         self.effect!.useConstantColor = GLboolean(GL_TRUE)
@@ -157,13 +157,13 @@ public class RNSphereImageViewController: GLKViewController {
 
         glGenBuffers(1, &vertexBuffer)
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexBuffer)
-        glBufferData(GLenum(GL_ARRAY_BUFFER), GLsizeiptr(sizeof(GLfloat) * sphereVertexData!.count), &sphereVertexData!, GLenum(GL_STATIC_DRAW))
+        glBufferData(GLenum(GL_ARRAY_BUFFER), GLsizeiptr(MemoryLayout<GLfloat>.size * sphereVertexData!.count), &sphereVertexData!, GLenum(GL_STATIC_DRAW))
 
         do {
             if let filePath = configuration.filePath {
-                textureInfo = try GLKTextureLoader.textureWithContentsOfFile(filePath, options: configuration.textureLoadOptions)
+                textureInfo = try GLKTextureLoader.texture(withContentsOfFile: filePath, options: configuration.textureLoadOptions)
             } else if let image = configuration.image {
-                textureInfo = try GLKTextureLoader.textureWithCGImage(image.CGImage!, options: configuration.textureLoadOptions)
+                textureInfo = try GLKTextureLoader.texture(with: image.cgImage!, options: configuration.textureLoadOptions)
             }
 
         } catch {
@@ -172,25 +172,23 @@ public class RNSphereImageViewController: GLKViewController {
         }
 
         // 頂点情報の設定
-        let strideSize: Int32 = Int32(sizeof(GLfloat) * 5)
+        let strideSize: Int32 = Int32(MemoryLayout<GLfloat>.size * 5)
         // XYZ座標
-        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.Position.rawValue))
-        glVertexAttribPointer(GLuint(GLKVertexAttrib.Position.rawValue), 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), strideSize, BUFFER_OFFSET(0))
+        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.position.rawValue))
+        glVertexAttribPointer(GLuint(GLKVertexAttrib.position.rawValue), 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), strideSize, nil)
         // 2Dテクスチャ
-        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.TexCoord0.rawValue))
-        glVertexAttribPointer(GLuint(GLKVertexAttrib.TexCoord0.rawValue), 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), strideSize, BUFFER_OFFSET(12))
+        glEnableVertexAttribArray(GLuint(GLKVertexAttrib.texCoord0.rawValue))
+        glVertexAttribPointer(GLuint(GLKVertexAttrib.texCoord0.rawValue), 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), strideSize, BUFFER_OFFSET(12))
 
         glBindVertexArrayOES(0)
     }
-
-    private func BUFFER_OFFSET(i: Int) -> UnsafePointer<Void> {
-        let p: UnsafePointer<Void> = nil
-        return p.advancedBy(i)
+    
+    fileprivate func BUFFER_OFFSET(_ i: Int) -> UnsafeRawPointer {
+        return UnsafeRawPointer(bitPattern: i)!
     }
 
-
-    private func tearDownGL() {
-        EAGLContext.setCurrentContext(self.context)
+    fileprivate func tearDownGL() {
+        EAGLContext.setCurrent(self.context)
 
         if let _ = self.textureInfo {
             var name: GLuint = self.textureInfo!.name
@@ -263,7 +261,7 @@ public class RNSphereImageViewController: GLKViewController {
         }
     }
 
-    override public func glkView(view: GLKView, drawInRect rect: CGRect) {
+    override open func glkView(_ view: GLKView, drawIn rect: CGRect) {
         glClearColor(1.0, 1.0, 1.0, 1.0)
         glClear(GLbitfield(GL_COLOR_BUFFER_BIT) | GLbitfield(GL_DEPTH_BUFFER_BIT))
 
@@ -278,18 +276,18 @@ public class RNSphereImageViewController: GLKViewController {
 
     
     // MARK: - Input
-    override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         rotationVelocityYaw = 0.0
         rotationVelocityPitch = 0.0
 
         let touch: UITouch = touches.first! as UITouch
-        touchPrevPoint = touch.locationInView(self.view)
+        touchPrevPoint = touch.location(in: self.view)
     }
 
-    override public func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 
         let touch: UITouch = touches.first! as UITouch
-        let pos: CGPoint = touch.locationInView(self.view)
+        let pos: CGPoint = touch.location(in: self.view)
 
         let distanceX = sqrtf( Pow(Float(pos.x - touchPrevPoint.x) ))
         let distanceY = sqrtf( Pow(Float(pos.y - touchPrevPoint.y) ))
@@ -303,15 +301,15 @@ public class RNSphereImageViewController: GLKViewController {
         touchPrevPoint = pos
     }
 
-    private func Pow(val: Float) -> Float {
+    fileprivate func Pow(_ val: Float) -> Float {
         return val * val
     }
 
-    override public func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
 
 
-    private func getSphere() -> [GLfloat] {
+    fileprivate func getSphere() -> [GLfloat] {
 
         let pi2: Double = 2.0 * M_PI
         let stackSize = configuration.stackSize

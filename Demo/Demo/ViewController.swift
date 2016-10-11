@@ -19,27 +19,29 @@ class ViewController: UIViewController {
 }
 
 extension ViewController : UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resourcesPath.count
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("cell")
+    @available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: "cell")
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         }
         cell?.textLabel?.text = resourcesPath[indexPath.row]
         return cell!
     }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return resourcesPath.count
+    }
+
 }
 
 extension ViewController : UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
 
         let vc = RNSphereImageViewController()
         vc.configuration = RNSIConfiguration()
-        let path = NSBundle.mainBundle().pathForResource(resourcesPath[indexPath.row], ofType: "JPG")
+        let path = Bundle.main.path(forResource: resourcesPath[indexPath.row], ofType: "JPG")
         vc.configuration.filePath = path
         vc.configuration.fps = 60
         vc.userDelegate = self
@@ -49,7 +51,7 @@ extension ViewController : UITableViewDelegate {
 
 extension ViewController : RNSIDelegate {
     // It will call when fail load a texture.
-    func failLoadTexture(error: ErrorType){
+    func failLoadTexture(_ error: Error){
         print(error)
     }
     
@@ -58,6 +60,6 @@ extension ViewController : RNSIDelegate {
     }
     
     // It will call when
-    func completeSetup(view: UIView){
+    func completeSetup(_ view: UIView){
     }
 }
