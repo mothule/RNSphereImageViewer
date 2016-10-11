@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "RNSphereImageViewer"
-  s.version      = "1.0.1"
+  s.version      = "2.0.0"
   s.summary      = "This library can watch a spherical image."
 
   # This description is used to generate tags and improve search results.
@@ -66,10 +66,10 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "9.3"
+  s.platform     = :ios, "10.0"
 
   #  When using multiple platforms
-  s.ios.deployment_target = '9.3'
+  s.ios.deployment_target = '10.0'
   # s.ios.deployment_target = "5.0"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
