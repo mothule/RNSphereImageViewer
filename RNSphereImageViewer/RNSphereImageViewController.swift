@@ -112,8 +112,8 @@ open class RNSphereImageViewController: GLKViewController {
         view.context = self.context!
         view.drawableDepthFormat = .format24
 
-        self.view.layer.magnificationFilter = kCAFilterLinear
-        self.view.layer.minificationFilter = kCAFilterLinear
+        self.view.layer.magnificationFilter = CALayerContentsFilter.linear
+        self.view.layer.minificationFilter = CALayerContentsFilter.linear
         sphereVertexData = getSphere()
         preferredFramesPerSecond = configuration.fps
         fovyDegree = GLfloat(configuration.fovy)
@@ -222,7 +222,7 @@ open class RNSphereImageViewController: GLKViewController {
         // Auto rotate
         rotationYaw += Float(self.timeSinceLastUpdate * Double(0.1))
 
-        let pi_2: GLfloat = GLfloat(M_PI_2)
+        let pi_2: GLfloat = GLfloat(Double.pi / 2.0)
 
         // Inertia and camera work
         rotationYaw += Float(self.timeSinceLastUpdate * Double(rotationVelocityYaw))
@@ -311,7 +311,7 @@ open class RNSphereImageViewController: GLKViewController {
 
     fileprivate func getSphere() -> [GLfloat] {
 
-        let pi2: Double = 2.0 * M_PI
+        let pi2: Double = 2.0 * Double.pi
         let stackSize = configuration.stackSize
         let vtxSize = configuration.sliceSize
         let maxRadius: Double = 1.0
@@ -319,10 +319,10 @@ open class RNSphereImageViewController: GLKViewController {
         var vtxes: [GLfloat] = []
 
         for stackIdx in 0..<stackSize {
-            let r1      =  sin(M_PI   * (Double(stackIdx    ) / Double(stackSize)))
-            let h1      = -cos(M_PI   * (Double(stackIdx    ) / Double(stackSize)))
-            let r2      =  sin(M_PI   * (Double(stackIdx + 1) / Double(stackSize)))
-            let h2      = -cos(M_PI   * (Double(stackIdx + 1) / Double(stackSize)))
+            let r1      =  sin(Double.pi   * (Double(stackIdx    ) / Double(stackSize)))
+            let h1      = -cos(Double.pi   * (Double(stackIdx    ) / Double(stackSize)))
+            let r2      =  sin(Double.pi   * (Double(stackIdx + 1) / Double(stackSize)))
+            let h2      = -cos(Double.pi   * (Double(stackIdx + 1) / Double(stackSize)))
             let tv1     =  Double(stackIdx  ) / Double(stackSize)
             let tv2     =  Double(stackIdx+1) / Double(stackSize)
 //            print("現階層:\(stackIdx) 現階層の高さ:\(h1) 現階層の中心からの距離:\(r1) 次階層の高さ:\(h2) 次階層の中心からの距離:\(r2)")
