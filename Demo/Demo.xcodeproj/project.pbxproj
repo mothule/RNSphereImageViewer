@@ -10,6 +10,7 @@
 		2FB6F59C1D86C40400F17B36 /* sample3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 2FB6F59A1D86C40400F17B36 /* sample3.JPG */; };
 		2FB6F59D1D86C40400F17B36 /* sample4.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 2FB6F59B1D86C40400F17B36 /* sample4.JPG */; };
 		542540E71D86F61A002A4D4B /* RNSphereImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542540E41D86F61A002A4D4B /* RNSphereImageViewController.swift */; };
+		54A7C5EF23255947001721B2 /* SCNVector3+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A7C5EE23255947001721B2 /* SCNVector3+Extension.swift */; };
 		54CDF08E1D8580110024C1DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CDF08D1D8580110024C1DE /* AppDelegate.swift */; };
 		54CDF0901D8580110024C1DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CDF08F1D8580110024C1DE /* ViewController.swift */; };
 		54CDF0931D8580110024C1DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54CDF0911D8580110024C1DE /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		2FB6F59B1D86C40400F17B36 /* sample4.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample4.JPG; sourceTree = "<group>"; };
 		542540E41D86F61A002A4D4B /* RNSphereImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNSphereImageViewController.swift; sourceTree = "<group>"; };
 		542540E51D86F61A002A4D4B /* RNSphereImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSphereImageViewer.h; sourceTree = "<group>"; };
+		54A7C5EE23255947001721B2 /* SCNVector3+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extension.swift"; sourceTree = "<group>"; };
 		54CDF08A1D8580110024C1DE /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54CDF08D1D8580110024C1DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54CDF08F1D8580110024C1DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				542540E41D86F61A002A4D4B /* RNSphereImageViewController.swift */,
+				54A7C5EE23255947001721B2 /* SCNVector3+Extension.swift */,
 				542540E51D86F61A002A4D4B /* RNSphereImageViewer.h */,
 			);
 			name = RNSphereImageViewer;
@@ -162,6 +165,7 @@
 				54CDF0901D8580110024C1DE /* ViewController.swift in Sources */,
 				54CDF08E1D8580110024C1DE /* AppDelegate.swift in Sources */,
 				542540E71D86F61A002A4D4B /* RNSphereImageViewController.swift in Sources */,
+				54A7C5EF23255947001721B2 /* SCNVector3+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

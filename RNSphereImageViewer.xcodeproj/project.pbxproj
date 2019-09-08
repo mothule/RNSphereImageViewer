@@ -10,6 +10,7 @@
 		547CB5F21D8458B900217EA7 /* RNSphereImageViewer.h in Headers */ = {isa = PBXBuildFile; fileRef = 547CB5F11D8458B900217EA7 /* RNSphereImageViewer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		547CB5F91D8458B900217EA7 /* RNSphereImageViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547CB5EE1D8458B900217EA7 /* RNSphereImageViewer.framework */; };
 		547CB5FE1D8458B900217EA7 /* RNSphereImageViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547CB5FD1D8458B900217EA7 /* RNSphereImageViewerTests.swift */; };
+		54A7C5F123256176001721B2 /* SCNVector3+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A7C5F023256176001721B2 /* SCNVector3+Extension.swift */; };
 		54CDF07F1D8459920024C1DE /* RNSphereImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CDF07E1D8459920024C1DE /* RNSphereImageViewController.swift */; };
 		54CDF0801D8459920024C1DE /* RNSphereImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CDF07E1D8459920024C1DE /* RNSphereImageViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		547CB5F81D8458B900217EA7 /* RNSphereImageViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RNSphereImageViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		547CB5FD1D8458B900217EA7 /* RNSphereImageViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSphereImageViewerTests.swift; sourceTree = "<group>"; };
 		547CB5FF1D8458B900217EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54A7C5F023256176001721B2 /* SCNVector3+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extension.swift"; sourceTree = "<group>"; };
 		54CDF07E1D8459920024C1DE /* RNSphereImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNSphereImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				54CDF07E1D8459920024C1DE /* RNSphereImageViewController.swift */,
+				54A7C5F023256176001721B2 /* SCNVector3+Extension.swift */,
 				547CB5F11D8458B900217EA7 /* RNSphereImageViewer.h */,
 				547CB5F31D8458B900217EA7 /* Info.plist */,
 			);
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54CDF07F1D8459920024C1DE /* RNSphereImageViewController.swift in Sources */,
+				54A7C5F123256176001721B2 /* SCNVector3+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

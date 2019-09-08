@@ -34,8 +34,8 @@ self.navigationController?.pushViewController(vc, animated: true)
 
 # Runtime Requirements
 
-- iOS 10
-- Swift 3
+- iOS 11
+- Swift 5
 
 # Installation and Setup
 
