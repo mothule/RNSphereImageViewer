@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "RNSphereImageViewer"
   s.version      = "3.0.0"
+  s.swift_versions = ['5.0']
   s.summary      = "This library can watch a spherical image."
 
   # This description is used to generate tags and improve search results.

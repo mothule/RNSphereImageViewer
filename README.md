@@ -42,7 +42,7 @@ self.navigationController?.pushViewController(vc, animated: true)
 Support CocoaPods
 
 ~~~podfile
-pod 'RNSphereImageViewer', '~> 2.0'
+pod 'RNSphereImageViewer', '~> 3.0'
 ~~~
 
 # LICENSE
