@@ -54,10 +54,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "Motoki Kawakami" => "mothule.dev+github@gmail.com" }
-  # Or just: s.author    = "Motoki Kawakami"
-  # s.authors            = { "Motoki Kawakami" => "mothule.dev+github@gmail.com" }
-  # s.social_media_url   = "http://twitter.com/Motoki Kawakami"
+  s.author             = "mothule"
   s.social_media_url = 'https://twitter.com/mothule'
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
