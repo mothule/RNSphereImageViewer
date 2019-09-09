@@ -19,7 +19,7 @@ public struct RNSIConfiguration {
     public var fps: Int = 60
 
     // field of view
-    public var fovy: Float = 60
+    public var fov: Float = 60
 
     // max distance from center
     public var zoomOutMax: Float = 100.0
@@ -103,7 +103,7 @@ open class RNSphereImageViewController: UIViewController, SCNSceneRendererDelega
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         cameraNode.position = SCNVector3(0, 0, 0)
-        cameraNode.camera!.fieldOfView = CGFloat(configuration.fovy)
+        cameraNode.camera!.fieldOfView = CGFloat(configuration.fov)
         cameraNode.camera!.zFar = Double(configuration.zoomOutMax)
         scene.rootNode.addChildNode(cameraNode)
         self.cameraNode = cameraNode
@@ -123,6 +123,7 @@ open class RNSphereImageViewController: UIViewController, SCNSceneRendererDelega
         ambientLightNode.light!.type = .ambient
         ambientLightNode.light!.color = UIColor.white
         scene.rootNode.addChildNode(ambientLightNode)
+        
         self.view.layer.magnificationFilter = CALayerContentsFilter.linear
         self.view.layer.minificationFilter = CALayerContentsFilter.linear
         
